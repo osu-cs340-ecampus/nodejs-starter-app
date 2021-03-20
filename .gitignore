@@ -1,0 +1,2 @@
+# We don't want to put the node_modules folder in the repo. All we need to duplicate this project is the package.json file.
+**/node_modules
