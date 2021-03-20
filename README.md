@@ -1,21 +1,19 @@
 # Overview
 
-This guide is intended for the students in CS 340 who want to take a path through the class using Flask/Python instead of Node.js.
+This guide is intended for the students in CS 340 who want to take a path through the class using Node.js and Javascript.
 
 This guide walks through everything from getting the tools setup to work on the app, setting up the infrastructure required to build and run your app, and building and (eventually) deploying the app either to OSU's flip server or Heroku.
 
 There are a few assumptions that are made when this guide is written:
 
-- You have basic familiarity with Python and MySQL syntax
+- You have basic familiarity with Javascript and MySQL syntax
 - You are capable of opening a terminal and navigating using basic commands like `cd`, `ls`, etc.
     - I will present the Windows command prompt equivalents however I strongly recommend getting a proper terminal installed. Life will be way easier; I promise!
 - You are developing your project on your own machine and not directly on the OSU server
     - We will point out differences for those who are working on the OSU server or any steps you might need to take
-- This guide was developed using Windows 10 coupled with Windows Subsystem for Linux 2 (running Ubuntu). I will point out any variations where commands or tasks are different for users with other setups.
+- This guide was developed using Windows 10 coupled with Windows Subsystem for Linux 2 (running Ubuntu). I will point out any variations where commands or tasks are different for users with other setups. If you are following along on a Mac, the Linux commands are equivalent.
 
 ## Contributions
-
-This guide is based off of the work previously done by prior TA and student, @mlapresta. Her previous work can be found in the repo [mlapresta/cs340_starter_app](https://github.com/mlapresta/cs340_starter_app). Without this work, this would have been a larger endeavor. In particular, we use her `db_connector.py` and `db_credentials.py` as well as some of her documentation.
 
 Dr. Curry and Prof. Safonte for allowing me the time to build the guide and project for other students to benefit from.
 
@@ -283,36 +281,36 @@ Best to get this out of the way up front. You'll need to create a few folders. G
 
 If the folders do not exist, create them. If the files do not exist, create them with the correct name and extension, and just leave them blank for now.
 
-# Step 3 - Building `app.py`
+# Step 3 - Building `app.js`
 
-## Starting `app.py`
+## Starting `app.js`
 
-Finally, we can start writing our web app. Trust me, all the setup was worth it. Open your app.py.
+Finally, we can start writing our web app. Trust me, all the setup was worth it. Open your app.js.
 
 Here is the absolute *bare* minimum code needed to get some output:
 
-```python
-from flask import Flask
-import os
+```javascript
+/*
+    SETUP
+*/
+var express = require('express');   // Express is the name of the library we need to run the server
+var app = express();
+PORT = 9123;
 
-# Configuration
+/*
+    ROUTES
+*/
+app.get('/', function(req, res)
+    {
+        res.send("The server is running!")
+    });
 
-app = Flask(__name__)
-
-# Routes 
-
-@app.route('/')
-def root():
-    return "Welcome to the OSU CS 340 - Flask Tutorial!"
-
-# Listener
-
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 9112)) 
-    #                                 ^^^^
-    #              You can replace this number with any valid port
-    
-    app.run(port=port) 
+/*
+    LISTENER
+*/
+app.listen(PORT, function(){
+    console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
+});
 ```
 
 Ok, techincally, it's not, you could do it with less. This sets us up for success later though, particularly if you end up deploying on Heroku.
