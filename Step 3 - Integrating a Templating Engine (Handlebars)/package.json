@@ -1,5 +1,5 @@
 {
-  "name": "step1",
+  "name": "step-3",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "George Kochera",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
 }

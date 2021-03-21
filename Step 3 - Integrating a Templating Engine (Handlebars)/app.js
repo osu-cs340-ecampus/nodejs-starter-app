@@ -2,8 +2,11 @@
     SETUP
 */
 
-// Express
+// Imports
 var express = require('express');
+var exphbs = require('express-handlebars');
+
+// Express
 var app = express();
 PORT = 9124;
 
@@ -11,8 +14,11 @@ PORT = 9124;
 var db = require('./database/db-connector');
 
 // Handlebars
-var hbs = require('express-handlebars');
-app.engine('handlebars', hbs());
+app.engine('handlebars', hbs({
+    layoutsDir: __dirname + '/views/layouts',
+    extname: 'hbs',
+    defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars');
 
 /*
