@@ -75,6 +75,8 @@ module.exports.pool = pool;
 Open up your `app.js` and we need to make a few additions now. Remember we split the file up into three pieces, SETUP, ROUTES and LISTENER... we need to add the following to SETUP.
 
 ```javascript
+// app.js
+
 // Database
 var db = require('./database/db-connector')
 ```
@@ -82,6 +84,8 @@ var db = require('./database/db-connector')
 We then need to modify the root route, that is the route which has the string `'/'` as its target:
 
 ```javascript
+// app.js 
+
 app.get('/', function(req, res)
     {
         // Define our queries
