@@ -1,4 +1,4 @@
-# Node.js - Step 0
+# Node.js - Step 0 - Getting a Server Running
 This is the bare minimum you need to get running with Node.js. This will get you a server that can accept web requests and will return an output.
 
 ## `npm init` 
@@ -31,7 +31,7 @@ The LISTENER section is what actually makes the server *work*. Without this, the
 */
 var express = require('express');   // We are using the express library for the web server
 var app     = express();            // We need to instantiate an express object to interact with the server in our code
-PORT        = 9123;                 // Set a port number at the top so it's easy to change in the future
+PORT        = 9124;                 // Set a port number at the top so it's easy to change in the future
 
 /*
     ROUTES
@@ -61,10 +61,10 @@ If you are following along on a flip, type `hostname` in at the prompt and it wi
 
 ![flip hostname](./assets/flip-hostname.png)
 
-Navigate to `http://flipX.engr.oregonstate.edu:port`. Replace `X` with the flip number we got from `hostname`. Replace `port` with the value you set `PORT` to in `app.js`.
+Navigate to `http://flipX.engr.oregonstate.edu:port`. Replace `X` with the flip number we got from `hostname`. In our case, we replace `X` with `2`. Replace `port` with the value you set `PORT` to in `app.js`. In our case it's `9124`.
 
 Otherwise, if you are following along on your computer locally, just navigate to `http://localhost:port` setting port the same way as stated in the previous paragraph.
 
 The end result will be a string of text in the browser saying "The server is running!":
 
-![server is running in browser](./assets/server-running.png)
+![server is running in browser](./assets/flip-hosting.png)
