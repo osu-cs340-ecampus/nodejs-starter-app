@@ -27,6 +27,8 @@ Assuming all goes well, you'll similar output like this:
 
 > The image above looks a little weird becuase of how I have SSH configured. The command wraps back onto itself, instead of dropping to a new line. The end result is the same though.
 
+If you run the command `show databases;` in the MySQL client, you should see a database named in a similar fashion listed in the output. For me its `cs340_kocherag`, for you, it should be `cs340_` + your ONID.
+
 ## Method 2 - PHPMyAdmin
 
 Open a web browser. Make sure you are connected to the OSU VPN.
