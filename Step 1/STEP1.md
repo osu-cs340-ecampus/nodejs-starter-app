@@ -19,11 +19,8 @@ mysql -u [your_database_username] -p -h classmysql.engr.oregonstate.edu
 
 |:exclamation: REMEMBER|
 |:--------------|
-|Your ONID and database username are NOT the same!|
+|Your ONID and database username are NOT the same! Also, your Password is also different than your OSU login password! It's usually the last four of your ID number.|
 
-|Remember: Your ONID and database username are NOT the same!
-
-> Remember: Your Password is also different than your OSU login password! It's usually the last four of your ID number.
 
 Assuming all goes well, you'll similar output like this:
 
