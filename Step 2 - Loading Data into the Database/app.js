@@ -37,6 +37,7 @@ app.get('/', function(req, res)
 
                         // Send the results to the browser
                         res.send(JSON.stringify(results));
+
                     });
                 });
             });

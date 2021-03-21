@@ -1,4 +1,4 @@
-# Node.js - Step 1 - Connecting to the Database
+# Node.js - Step 1 - Connecting to a MySQL Database
 Once we are able to observe the server is running, we then need to connect our database.
 
 # Validate That Your Database Exists
