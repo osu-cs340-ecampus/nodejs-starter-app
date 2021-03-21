@@ -14,12 +14,13 @@ PORT = 9124;
 var db = require('./database/db-connector');
 
 // Handlebars
-app.engine('handlebars', hbs({
+app.engine('hbs', exphbs({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    viewsDir: __dirname + '/views'
 }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'hbs');
 
 /*
     ROUTES
