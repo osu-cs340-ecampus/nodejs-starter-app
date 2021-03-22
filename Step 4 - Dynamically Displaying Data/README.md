@@ -74,3 +74,5 @@ Ok, so there's a lot of *magic* going on here. Handlebars is essentially a mashu
 And thats it! Save everything, restart the server, and navigate back to your page in the browser.
 
 ![the result of the database query presented on the screen](./assets/bsgpeople_browser.png)
+
+There is the data from our database, in all of its glory, presented in a neat table for user visiting the web application!
