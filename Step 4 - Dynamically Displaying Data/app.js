@@ -12,6 +12,7 @@ var db = require('./database/db-connector');
 
 // Handlebars
 var exphbs = require('express-handlebars');
+const { query } = require('express');
 app.engine('.hbs', exphbs({
     extname: ".hbs"
 }));
@@ -22,7 +23,10 @@ app.set('view engine', '.hbs');
 */
 app.get('/', function(req, res)
     {
-        res.render('index');
+        let query1 = "SELECT * FROM bsg_people;";
+        db.pool.query(query1, function(error, rows, fields){
+            res.render('index', {data: rows});
+        })
     });
 
 /*
