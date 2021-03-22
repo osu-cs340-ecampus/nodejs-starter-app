@@ -1,0 +1,16 @@
+{
+  "name": "step-4",
+  "version": "1.0.0",
+  "description": "This is the bread-and-butter section where Node.js really begins to shine. We are going to get data from a MySQL query and present it in a meaningful manner on the browser.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Kochera",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.0",
+    "mysql": "^2.18.1"
+  }
+}
