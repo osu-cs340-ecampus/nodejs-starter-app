@@ -16,10 +16,10 @@ This will create the `package.json` file that allows you to easily keep your imp
 Ok, now we have to install express, since, that is what we will be using as a server engine. Don't read too much into this step at first. We will talk more about it in later steps. From the prompt, in the root of your project, run:
 
 ```bash
-npm i express --save-dev
+npm i express --save
 ```
 
-`i` just means install. `--save-dev` will make sure the fact we installed this dependency gets added to our `package.json`. If you don't want to be constantly uploading, downloading, zipping and sending giant `node_modules` folders in your project, then you need to make sure you always install new packages with the `--save-dev` option.
+`i` just means install. `--save` will make sure the fact we installed this dependency gets added to our `package.json`. If you don't want to be constantly uploading, downloading, zipping and sending giant `node_modules` folders in your project, then you need to make sure you always install new packages with the `--save` option.
 
 ## App.js
 

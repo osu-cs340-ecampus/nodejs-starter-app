@@ -52,7 +52,7 @@ There is a bit of 'set-up' that has to happen here but consider it more like bui
 From the root of your project run the following command in your terminal:
 
 ```bash
-npm i mysql --save-dev
+npm i mysql --save
 ```
 
 ## Create the `database` folder and `db_connector.js`

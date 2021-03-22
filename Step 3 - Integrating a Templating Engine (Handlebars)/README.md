@@ -35,7 +35,7 @@ At this point your directory structure should look like this:
 In your terminal, at the root of your project run the following command:
 
 ```bash
-npm i express-handlebars@4.0.0
+npm i express-handlebars@4.0.0 --save
 ```
 
 |:exclamation: IMPORTANT|
