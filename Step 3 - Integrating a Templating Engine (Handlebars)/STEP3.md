@@ -35,8 +35,12 @@ At this point your directory structure should look like this:
 In your terminal, at the root of your project run the following command:
 
 ```bash
-npm i express-handlebars
+npm i express-handlebars@4.0.0
 ```
+
+|:exclamation: IMPORTANT|
+|:--------------|
+|You must use `express-handlebars@4.0.0` or older. As of 3/21/21, the school's FLIP servers were still running Node.js Version 6.10.2. Newer versions of the `express-handlebars` package dropped support for Node.js versions < 10.0.0 sometime around mid-2020. |
 
 The `i` just means install.
 
@@ -47,8 +51,6 @@ Who wants to write some HTML...ish? Handlebars is sort of like HTML, but it has 
 ### `main.hbs`
 
 Inside your `/views/layouts` directory, create a file called `main.hbs`.
-
-> The file ending really doesn't matter `hbs` or `handlebars`. Both work, but I just find typing seven less letters to be a little nicer.
 
 Open up `main.hbs` in your text editor, and add the following code:
 
@@ -88,5 +90,32 @@ Create a new file in `/views` (not in `/views/layouts`) called `index.hbs` and o
 ## Modify `app.js` to use Handlebars
 
 The last step is to "hook it up" (Handlebars and our templates) in `app.js`, here is how.
+
+In the top of our `app.js` file, we need to add the following to the SETUP section:
+
+```javascript
+// app.js
+
+var exphbs = require('express-handlebars');     // Import express-handlebars
+app.engine('.hbs', exphbs({                     // Create an instance of the handlebars engine to process templates
+    extname: ".hbs"
+}));
+app.set('view engine', '.hbs');                 // Tell express to use the handlebars engine whenever it encounters a *.hbs file.
+```
+
+And in our ROUTES section, we are going to remove everything that was in the root route and replace it with this:
+
+```javascript
+// app.js
+
+app.get('/', function(req, res)
+    {
+        res.render('index');                    // Note the call to render() and not send(). Using render() ensures the templating engine
+    });                                         // will process this file, before sending the finished HTML to the client.
+```
+
+At this point, we should now be able to run our server, and visit our page.
+
+![demonstration of handlebars working in browser](./assets/handlebars-working.png)
 
 

@@ -4,16 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "George Kochera",
   "license": "ISC",
   "devDependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.1",
+    "express-handlebars": "^4.0.0",
     "mysql": "^2.18.1"
-  },
-  "dependencies": {
-    "package.json": "^2.0.1"
   }
 }
