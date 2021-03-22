@@ -69,6 +69,8 @@ At this point, we just need to modify the `/views/index.hbs` file to "use" the d
 
 > You don't need to copy the comments over, but they're there so you understand what the thought process is with writing this handlebars file.
 
+Ok, so there's a lot of *magic* going on here. Handlebars is essentially a mashup of HTML and some extra flair. Anytime you see the double curly-braces `{{ something }}`, that's called a _handlebars expression_. There are also things called _handlebars helpers_. Those have the `#` sign right after the expression opens and look like `{{#each something}}`. These _helpers_ allow you to iterate through objects and arrays and perform other specialized tasks on the data you send to the templating engine. There is definitely a lot to work with and truly, if you want to get a comprehensive understanding of it all, check out the ![Handlebars JS Language Guide](https://handlebarsjs.com/guide/) for all the details!
+
 And thats it! Save everything, restart the server, and navigate back to your page in the browser.
 
 ![the result of the database query presented on the screen](./assets/bsgpeople_browser.png)
