@@ -47,6 +47,14 @@ You should see a tree on the left hand part of the screen with all your database
 
 There is a bit of 'set-up' that has to happen here but consider it more like building a foundation before you start building the house.
 
+## Install the `mysql` package
+
+From the root of your project run the following command in your terminal:
+
+```bash
+npm i mysql --save-dev
+```
+
 ## Create the `database` folder and `db_connector.js`
 
 From the root of our project, create a folder called `database`. We want to stay organized, this is a step in that direction. Next, create a file in that folder called `db_connector.js`. Open it up:
