@@ -69,6 +69,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 ```
 
+We are simply enabling express to handle JSON data, as well as form data. Don't read too much into this part.
+
 The second change will be to create a new route, but this one will be a POST route. So instead of `app.get()` we will use `app.post()`. Here's the example:
 
 ```javascript
@@ -79,8 +81,21 @@ app.post('/add-person', function(req, res)
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
+    // Capture NULL values
+    let homeworld = parseInt(data.homeworld);
+    if (isNaN(homeworld))
+    {
+        homeworld = 'NULL'
+    }
+
+    let age = parseInt(data.age);
+    if (isNaN(age))
+    {
+        age = 'NULL'
+    }
+
     // Create the query and run it on the database
-    query1 = `INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES ('${data.fname}', '${data.lname}', ${parseInt(data.homeworld)}, ${parseInt(data.age)})`;
+    query1 = `INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES ('${data.fname}', '${data.lname}', ${homeworld}, ${age})`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
@@ -92,8 +107,161 @@ app.post('/add-person', function(req, res)
         }
         else
         {
-            // If there was no error, send the visitor a 200, indicating the query was OK.
-            res.sendStatus(200)
+            // If there was no error, perform a SELECT * on bsg_people
+            query2 = `SELECT * FROM bsg_people;`;
+            db.pool.query(query2, function(error, rows, fields){
+
+                // If there was an error on the second query, send a 400
+                if (error) {
+                    
+                    // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                    console.log(error);
+                    res.sendStatus(400);
+                }
+                // If all went well, send the results of the query back.
+                else
+                {
+                    res.send(rows);
+                }
+            })
         }
     })
 });
+```
+
+This is a big chunk of code; let's break it down into pieces.
+
+- The `app.post('/add-person', function (req, res)...` indicates we set up a 'route' that will honor POST requests coming to `/add-person`. This will be the URI we use in the client side JavaScript.
+- In POST requests, data transmitted is always contained in the body of the request. In express, you access that data using `req.body`.
+- The `homeworld` and `age` are number values. If the fields are left blank and we try to parse them to integers, they'll become `NaN`. We test for this and assume if they were blank, they should be `NULL` in the database.
+
+The rest is simply writing a string containing the query we want to run, followed by running the query. 
+
+> Template Literals: The weird notation you see like `${homeworld}` is a JavaScript syntax called a **template literal**. Learn to love them. You simply encase your variable in brackets, precede it with a dollar sign and JS will automatically convert that variable to a string (if possible) replacing it inline. Do note, **any time you use template literals, the ENTIRE string must be surrounded with backticks**. If you surround your stiring with double, or single quotes, it will not work.
+
+Once we run the `INSERT` query, we then will see if there was an error. If there was an error, we send back a status of 400, indicating it was a 'Bad Request'. The user is allowed to try again. If there was no error, we run the `SELECT` query, make sure there were no more errors, and if all went well, send back the results of the second query.
+
+## Create `add_person.js` - Client-Side JS
+
+Inside your `public/js` directory, create a file called `add_person.js`. Open it in a text editor.
+
+Again, another massive wall of code. But, really its only long because there are 5 fields in the table, and 4 fields to read from for the form. Instead of using loops, I wrote out each line with clear variable names to make it super easy to understand what is actually going on here. Feel free to optimize in your own implementation.
+
+```javascript
+// Get the objects we need to modify
+let addPersonForm = document.getElementById('add-person-form');
+
+// Modify the objects we need
+addPersonForm.addEventListener("submit", function (e) {
+    
+    // Prevent the form from submitting
+    e.preventDefault();
+
+    // Get form fields we need to get data from
+    let inputFirstName = document.getElementById("input-fname");
+    let inputLastName = document.getElementById("input-lname");
+    let inputHomeworld = document.getElementById("input-homeworld");
+    let inputAge = document.getElementById("input-age");
+
+    // Get the values from the form fields
+    let firstNameValue = inputFirstName.value;
+    let lastNameValue = inputLastName.value;
+    let homeworldValue = inputHomeworld.value;
+    let ageValue = inputAge.value;
+
+    // Put our data we want to send in a javascript object
+    let data = {
+        fname: firstNameValue,
+        lname: lastNameValue,
+        homeworld: homeworldValue,
+        age: ageValue
+    }
+    
+    // Setup our AJAX request
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/add-person", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+
+    // Tell our AJAX request how to resolve
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+            // Add the new data to the table
+            addRowToTable(xhttp.response);
+
+            // Clear the input fields for another transaction
+            inputFirstName.value = '';
+            inputLastName.value = '';
+            inputHomeworld.value = '';
+            inputAge.value = '';
+        }
+        else if (xhttp.readyState == 4 && xhttp.status != 200) {
+            console.log("There was an error with the input.")
+        }
+    }
+
+    // Send the request and wait for the response
+    xhttp.send(JSON.stringify(data));
+
+})
+
+
+// Creates a single row from an Object representing a single record from 
+// bsg_people
+addRowToTable = (data) => {
+
+    // Get a reference to the current table on the page and clear it out.
+    let currentTable = document.getElementById("people-table");
+
+    // Get the location where we should insert the new row (end of table)
+    let newRowIndex = currentTable.rows.length;
+
+    // Get a reference to the new row from the database query (last object)
+    let parsedData = JSON.parse(data);
+    let newRow = parsedData[parsedData.length - 1]
+
+    // Create a row and 4 cells
+    let row = document.createElement("TR");
+    let idCell = document.createElement("TD");
+    let firstNameCell = document.createElement("TD");
+    let lastNameCell = document.createElement("TD");
+    let homeworldCell = document.createElement("TD");
+    let ageCell = document.createElement("TD");
+
+    // Fill the cells with correct data
+    idCell.innerText = newRow.id;
+    firstNameCell.innerText = newRow.fname;
+    lastNameCell.innerText = newRow.lname;
+    homeworldCell.innerText = newRow.homeworld;
+    ageCell.innerText = newRow.age;
+
+    // Add the cells to the row 
+    row.appendChild(idCell);
+    row.appendChild(firstNameCell);
+    row.appendChild(lastNameCell);
+    row.appendChild(homeworldCell);
+    row.appendChild(ageCell);
+    
+    // Add the row to the table
+    currentTable.appendChild(row);
+}
+```
+
+Breaking it down into pieces, here is what is going on:
+
+1. We first tell the browser, don't submit the form in the conventional sense, so we call `preventDefault` on the submit event to do this.
+
+2. We gather the input data from the form, package it into a single object called `data`.
+
+3. Create the AJAX request, tell it we are sending JSON (header), tell it what we want to do when we get something back (`onreadystatechange`), and then send the data.
+
+4. When the `readyState` becomes 4 it means we are done receiving, and we are looking for an HTTP Status Code of 200 which means 'OK'. If we get that, we add the row to the table in the DOM and clear the input fields, otherwise, we just print an error message to the console. 
+
+5. The second function is the DOM manipulation part. It's nothing that hasn't been covered in 290, but it has just been separated out into its own function. Remember keep it neat and tidy! Since we get JSON back from Express, we do need to `JSON.parse()` it before accessing the Object's members, in this case it will be an array, containing an Object for each row returned from our `SELECT` query.
+
+# Putting it All Together
+
+Once all the files have been created or updated, restart your server and visit your page again. If all went well,
+you should see the following behavior:
+
+![adding people to bsg_people](./assets/bsg-people-add.gif)
