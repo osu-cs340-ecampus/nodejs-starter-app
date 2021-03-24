@@ -33,12 +33,12 @@ Whenever the Step requires database interactivity, you will need to load your ow
   - [Terminal Application](#terminal-application)
   - [Git](#git)
     - [Create a .gitignore File](#create-a-.gitignore-file)
-- [Step 0 - Setting Up Node.js](./Step 0 - Setting Up Node.js/README.md)
-- [Step 1 - Connecting to a MySQL Database](./Step 1 - Connecting to a MySQL Database/README.md)
-- [Step 2 - Loading Data into the Database](Step 2 - Loading Data into the Database/README.md)
-- [Step 3 - Integrating a Templating Engine (Handlebars)](Step 3 - Integrating a Templating Engine (Handlebars)/README.md)
-- [Step 4 - Dynamically Displaying Data](Step 4 - Dynamically Displaying Data/README.md)
-- [Step 5 - Adding New Data](Step 5 - Adding New Data/README.md)
+- [Step 0 - Setting Up Node.js](../Step 0 - Setting Up Node.js/README.md)
+- [Step 1 - Connecting to a MySQL Database](/Step 1 - Connecting to a MySQL Database/README.md)
+- [Step 2 - Loading Data into the Database](/Step 2 - Loading Data into the Database/README.md)
+- [Step 3 - Integrating a Templating Engine (Handlebars)](/Step 3 - Integrating a Templating Engine (Handlebars)/README.md)
+- [Step 4 - Dynamically Displaying Data](/Step 4 - Dynamically Displaying Data/README.md)
+- [Step 5 - Adding New Data](/Step 5 - Adding New Data/README.md)
 - [Extra Documentation](#extra-documentation)
 
 # Get The Tools Downloaded You Will Need
