@@ -1,0 +1,60 @@
+group: auto_dealer_schema 
+
+Model = {
+	model_id:number, model_name:string, first_production_year:string
+  	1,'Model1',"1985"
+	2,'Model2',"1987"
+	3,'2 Series',"1990"
+	4,'Focus',"1986"
+	5,'ModelX', "2000"
+	6,'GT4000', "2010"
+}
+
+Make = {
+  make_id:number, make_name:string, country:string
+	1,'Make1','Italy'
+	2,'Make2','Japan'
+	3,'Make3','USA'
+	4,'BMW','Germany'
+	5,'Ford','USA'
+	6,'Tesla','USA'
+	7,'Volkswagon','Mexico'
+}
+
+Color = {
+  color_id:number, name:string, code:string
+	1,'Sky Blue','#1869c5'
+	2,'Bold Red','#b00007'
+	3,'Electic Green','#48D597'
+	4,'Smoke Grey','#333F48'
+}
+
+Vehicle = {
+  vehicle_id:number, fk_make_id:number, fk_model_id:number, year:string
+	1,1,1,'1985'
+	2,4,4,'1986'
+	3,2,2,'1987'
+	4,6,5,'2000'
+}
+
+Inventory = {
+ inventory_id:number, fk_vehicle_id:number, fk_color_id:number, price:number
+ 1,2,1,9000
+ 2,2,2,8000
+ 3,2,1,9500
+ 4,6,5,20000
+}
+
+Incentive = {
+ incentive_id:number, type:string, amount:number, conditions:string
+ 1,'dealer',400,'only if credit score > 700'
+ 2,'company',400,'only if credit score > 600'
+}
+
+Vehicle_Incentive = {
+ fk_vehicle_id:number, fk_incentive_id:number, valid_till:string
+ 1,1,'2018-03-21'
+ 2,1,'2018-03-21'
+ 3,2,'2018-03-21'
+ 2,2,'2018-03-21'
+}
