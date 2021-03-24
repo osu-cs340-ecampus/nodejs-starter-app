@@ -127,6 +127,9 @@ You can add individual paths, files and folders on a line by line basis in this 
 
 # Extra Documentation
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-- [Jinja 2 Template Designer Documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/)
+Believe it or not, these resources will yield you dividends if you spend time finding answers here. Many of the function calls and other things done in this guide can be found here. You can also find a variety of other features when browsing the docs and implement them in your own projects.
+
+- [ExpressJS API Documentation](https://expressjs.com/en/4x/api.html)
+- [HandlebarsJS Language Guide](https://handlebarsjs.com/guide/)
 - [Git - The Simple Guide](https://rogerdudler.github.io/git-guide/)
+- [Node.js 14 API Documentation](https://nodejs.org/dist/latest-v14.x/docs/api/)
