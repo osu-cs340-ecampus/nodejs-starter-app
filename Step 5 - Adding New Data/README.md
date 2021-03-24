@@ -30,6 +30,19 @@ We are doing this because the next step, depending on the path you take, will re
 
 In both of the following methods, you will see weird notation you see like `${homeworld}` in our JS. This is a JavaScript convention called a **template literal**. Learn to love them. You simply encase your variable in brackets, precede it with a dollar sign and JS will automatically convert that variable to a string (if possible) replacing it inline. Do note, **any time you use template literals, the ENTIRE string must be surrounded with backticks**. If you surround your stiring with double, or single quotes, it will not work.
 
+## Configuring Express to Handle JSON and Form Data - REQUIRED
+
+We need to make two separate changes in our `app.js` regardless of the method we choose moving forward. The change will be in the SETUP section, directly after the line that says `var app = express();`:
+
+```javascript
+// app.js - SETUP section
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+```
+
+We are simply enabling express to handle JSON data, as well as form data. Don't read too much into this part.
+
 # Method 1 - Adding New Data via Asynchronous Javascript and XML (AJAX)
 
 This method will require some Document Object Model (DOM) manipulation. This is something that is covered thoroughly in CS 290, so this guide assumes you have a handle on the basics.
@@ -66,18 +79,7 @@ Open up `/views/index.hbs` in your favorite text editor. We need to create a few
 
 ## Modify `app.js`
 
-We need to make two separate changes in our `app.js`. The first change will be in the SETUP section, directly after the line that says `var app = express();`:
-
-```javascript
-// app.js - SETUP section
-
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-```
-
-We are simply enabling express to handle JSON data, as well as form data. Don't read too much into this part.
-
-The second change will be to create a new route, but this one will be a POST route. So instead of `app.get()` we will use `app.post()`. Here's the example:
+The first change will be to create a new route, but this one will be a POST route. So instead of `app.get()` we will use `app.post()`. Here's the example:
 
 ```javascript
 // app.js - ROUTES section
