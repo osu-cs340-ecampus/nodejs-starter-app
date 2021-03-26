@@ -112,9 +112,11 @@ You will now be in your new folder created by cloning the repo. **This would be 
 
 > Your terminal prompt is likely to look a bit different than what you see in these images. I have customized mine. The commands on your terminal will still yield the same output, they just might be different colors or fonts.
 
+> This example provides pictures that have an already populated database. You will only see a README.md file in your project.
+
 ### Create a .gitignore File
 
-There are going to be certain things we don't want to submit to our repo, such as credentials, virtual environments, libraries, etc.
+There are going to be certain things we don't want to submit to our repo, such as credentials, the `/node_modules/` folder, etc.
 
 Create a file called `.gitignore` in the root of your directory.
 
