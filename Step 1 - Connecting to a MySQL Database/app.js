@@ -36,7 +36,8 @@ app.get('/', function(req, res)
                     db.pool.query(query4, function(err, results, fields){
 
                         // Send the results to the browser
-                        res.send(JSON.stringify(results));
+                        let base = "<h1>MySQL Results:</h1>"
+                        res.send(base + JSON.stringify(results));
                     });
                 });
             });
