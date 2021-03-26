@@ -33,6 +33,7 @@ Whenever the Step requires database interactivity, you will need to load your ow
   - [Terminal Application](#terminal-application)
   - [Git](#git)
     - [Create a .gitignore File](#create-a-.gitignore-file)
+  - [More on Git](#more-on-git)
 - [Step 0 - Setting Up Node.js](/Step%200%20-%20Setting%20Up%20Node.js/)
 - [Step 1 - Connecting to a MySQL Database](/Step%201%20-%20Connecting%20to%20a%20MySQL%20Database/)
 - [Step 2 - Loading Data into the Database](/Step%202%20-%20Loading%20Data%20into%20the%20Database/)
@@ -128,6 +129,30 @@ You can add individual paths, files and folders on a line by line basis in this 
 /.vscode
 /node_modules
 ```
+
+## More on Git
+
+In short, your Git workflow should look something like this. 
+
+1. Do a little bit of work
+2. `git add` run in the command line from the root of your project
+3. `git commit -m 'a message here containing a brief description of what you did'`
+4. Do a little bit more work...
+5. Repeat steps 2 through 4...
+6. When you're done working for awhile (end-of-day, need to work on something different)...
+7. Make sure you have added and committed everything already (you can run `git status` to verify that you have nothing to commit, it will tell you)
+8. `git push`
+9. Done!
+
+When you are about to start working on your project, from the root of your project in the command line:
+
+1. Get ready to work, run `git fetch`
+2. `git pull`
+3. Ready to work, go to the previous steps 1-9 while working...
+
+Keep in mind that if you are working with multiple people on a project, you might want to learn about how to use branches, and submit pull requests. These are concepts that are tought in CS362, but have immense utility in any form of group work.
+
+Again, using Git can really help you, or even save you. Check out [Git - The Simple Guide](https://rogerdudler.github.io/git-guide/) for the absolute barebones basics to understand git commands, what they do, and how they can help you.
 
 # Extra Documentation
 
