@@ -11,6 +11,12 @@ npm init
 
 This will create the `package.json` file that allows you to easily keep your imported libraries for the project up-to-date as well as share your project with other people (and later deploy your project) without constantly sharing the eggregiously large `/node_modules` folder.
 
+Running this command will ask you a series of questions. For most of them you can simply hit enter. There are two important ones however:
+
+1. Entry Point - You must set this to `app.js`. It will suggest `index.js` as a default.
+
+2. Author - Enter your name, take credit for your hard work.
+
 ## Install Express
 
 Ok, now we have to install express, since, that is what we will be using as a server engine. Don't read too much into this step at first. We will talk more about it in later steps. From the prompt, in the root of your project, run:
