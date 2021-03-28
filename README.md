@@ -34,6 +34,7 @@ Whenever the Step requires database interactivity, you will need to load your ow
   - [Git](#git)
     - [Create a .gitignore File](#create-a-.gitignore-file)
   - [More on Git](#more-on-git)
+  - [Node Verson Manager](#node-version-manager)
 - [Step 0 - Setting Up Node.js](/Step%200%20-%20Setting%20Up%20Node.js/)
 - [Step 1 - Connecting to a MySQL Database](/Step%201%20-%20Connecting%20to%20a%20MySQL%20Database/)
 - [Step 2 - Loading Data into the Database](/Step%202%20-%20Loading%20Data%20into%20the%20Database/)
@@ -153,6 +154,37 @@ When you are about to start working on your project, from the root of your proje
 Keep in mind that if you are working with multiple people on a project, you might want to learn about how to use branches, and submit pull requests. These are concepts that are tought in CS362, but have immense utility in any form of group work.
 
 Again, using Git can really help you, or even save you. Check out [Git - The Simple Guide](https://rogerdudler.github.io/git-guide/) for the absolute barebones basics to understand git commands, what they do, and how they can help you.
+
+# Node Version Manager
+
+There is a unique package which can be installed to your user account called Node Version Manager. This will let you install multiple instances of Node.js within your user account. The reason we need to use it is to simply install a single **newer** Node version to support the many changes to Node.js (and packages for it). The school currently runs Node.js v6.10.2. Node is currently many iterations past that.
+
+## Step 1
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
+Lots of information will be moving across the screen. This is a script that allows you to install Node Version Manager on your user account.
+
+## Step 2
+
+```bash
+nvm install stable
+```
+
+A few lines of text will print, and the last line should look something like this:
+
+```bash
+Creating default alias: default -> stable (-> v15.12.0)
+```
+
+You can confirm the successful installation of NVM by entering the following command:
+
+```bash
+node --version
+# v15.12.0 or something way newer than 6.x.x
+```
 
 # Extra Documentation
 
