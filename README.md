@@ -159,6 +159,8 @@ Again, using Git can really help you, or even save you. Check out [Git - The Sim
 
 There is a unique package which can be installed to your user account called Node Version Manager. This will let you install multiple instances of Node.js within your user account. The reason we need to use it is to simply install a single **newer** Node version to support the many changes to Node.js (and packages for it). The school currently runs Node.js v6.10.2. Node is currently many iterations past that.
 
+You can visit the author's GitHub for more details [here](https://github.com/nvm-sh/nvm#install-script).
+
 ## Step 1
 
 ```bash
