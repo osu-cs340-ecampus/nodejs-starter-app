@@ -163,6 +163,8 @@ You can visit the author's GitHub for more details [here](https://github.com/nvm
 
 ## Step 1
 
+Starting from your terminal, with an active SSH session into any of the FLIP servers, run the following command:
+
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
