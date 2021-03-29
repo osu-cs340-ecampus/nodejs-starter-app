@@ -35,12 +35,12 @@ At this point your directory structure should look like this:
 In your terminal, at the root of your project run the following command:
 
 ```bash
-npm i express-handlebars@4.0.0 --save
+npm i express-handlebars --save
 ```
 
 |:exclamation: IMPORTANT|
 |:--------------|
-|You must use `express-handlebars@4.0.0` or older. As of 3/21/21, the school's FLIP servers were still running Node.js Version 6.10.2. Newer versions of the `express-handlebars` package dropped support for Node.js versions < 10.0.0 sometime around mid-2020. |
+| |
 
 The `i` just means install.
 
