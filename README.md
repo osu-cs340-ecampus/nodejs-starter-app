@@ -161,6 +161,10 @@ There is a unique package which can be installed to your user account called Nod
 
 You can visit the author's GitHub for more details [here](https://github.com/nvm-sh/nvm#install-script).
 
+|:exclamation: IMPORTANT|
+|:--------------|
+|If you do not install a newer version of Node.js with `nvm` then you must use `express-handlebars@4.0.0` or older. As of 3/21/21, the school's FLIP servers were still running Node.js Version 6.10.2. Newer versions of the `express-handlebars` package dropped support for Node.js versions < 10.0.0 sometime around mid-2020. |
+
 ## Step 1
 
 Starting from your terminal, with an active SSH session into any of the FLIP servers, run the following command:
