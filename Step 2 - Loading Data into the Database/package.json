@@ -1,11 +1,16 @@
 {
   "name": "step-2",
   "version": "1.0.0",
-  "description": "",
+  "description": "At this point, we have a basically functional full-stack web application. Sure it only runs a single query and just prints it on the screen. But it has a front-end (what the user sees), and back-end (Node.js with Express) along with persistent data storage (MySQL).",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "George Kochera",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {}
 }
