@@ -187,7 +187,15 @@ A few lines of text will print, and the last line should look something like thi
 Creating default alias: default -> stable (-> v15.12.0)
 ```
 
-You can confirm the successful installation of NVM by entering the following command:
+## Step 3
+
+Either close out and restart your SSH session with the FLIP server -or- run the following command:
+
+```bash
+source ~/.bashrc
+```
+
+You can then confirm the successful installation of `nvm` and view the new version of `node` by entering the following command:
 
 ```bash
 node --version
