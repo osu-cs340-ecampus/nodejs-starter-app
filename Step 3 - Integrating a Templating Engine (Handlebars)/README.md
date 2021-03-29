@@ -40,7 +40,7 @@ npm i express-handlebars --save
 
 |:exclamation: IMPORTANT|
 |:--------------|
-| |
+|If you run your application and get a variety of weird syntax errors such as 'Unexpected Token' or 'Unexpected Identifier', ensure that you are running a more recent verison of Node.js (>v14.x.x) via `nvm`. See the main README.md for more details.  |
 
 The `i` just means install.
 
