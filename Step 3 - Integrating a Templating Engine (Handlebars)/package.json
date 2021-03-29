@@ -1,16 +1,16 @@
 {
   "name": "step-3",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a huge section. We are moving from sending single string responses to the client when the navigate to our page, to building the page on-the-fly and sending the built page to the client. This process allows you to create pages which contain data that is more meaningful to the client.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "author": "George Kochera",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.0",
+    "express-handlebars": "^4.0.6",
     "mysql": "^2.18.1"
   }
 }
