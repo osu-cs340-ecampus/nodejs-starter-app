@@ -55,12 +55,12 @@ From the root of your project run the following command in your terminal:
 npm i mysql --save
 ```
 
-## Create the `database` folder and `db_connector.js`
+## Create the `database` folder and `db-connector.js`
 
-From the root of our project, create a folder called `database`. We want to stay organized, this is a step in that direction. Next, create a file in that folder called `db_connector.js`. Open it up:
+From the root of our project, create a folder called `database`. We want to stay organized, this is a step in that direction. Next, create a file in that folder called `db-connector.js`. Open it up:
 
 ```javascript
-// ./database/db_connector.js
+// ./database/db-connector.js
 
 // Get an instance of mysql we can use in the app
 var mysql = require('mysql')
