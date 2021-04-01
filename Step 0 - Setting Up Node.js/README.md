@@ -108,3 +108,5 @@ should then see a few lines of text indicating that your `app.js` is being proce
 ![server is running in browser with forever](./assets/forever-running.png)
 
 You can verify that your project will run forever (pun sort-of intended), by closing out of your terminal now. Ensure you are still connected to the OSU VPN and navigate to your web application again. If it loads, `forever` is working.
+
+This guidance on implementing `forever` can be used on any Node.JS project, and can be used in any step outlined in this walkthrough.
