@@ -27,6 +27,20 @@ npm i express --save
 
 `i` just means install. `--save` will make sure the fact we installed this dependency gets added to our `package.json`. If you don't want to be constantly uploading, downloading, zipping and sending giant `node_modules` folders in your project, then you need to make sure you always install new packages with the `--save` option.
 
+## Install `forever`
+
+In short, if you were to run the command `node app.js` right now from the root of your project, you would be able to access it, via your browser. It would continue to work... until you logged out of the SSH session. We want this project to run forever (pardon the pun), so that it stays up until we want it to come down.
+
+For reasons beyond your control, running `forever` is a bit more complex on the school's FLIP server. Here is how to make it easy, run the following command from the root of your project:
+
+```bash
+alias forever='./node_modules/forever/bin/forever'
+```
+
+Now, whenever you run `forever` from the *root* of any project that has the forever dependency installed, it will work, without fail. If you want to make this more permanent (not absolutely permanent), you can add this as a line towards the end of the `~/.bashrc` file in your home directory (notice the ~ squiggly) on the OSU FLIP server.
+
+> You must run the forever command from the root of your project (where app.js is located). If you don't it will fail.
+
 ## App.js
 
 Our `app.js` is broken into three pieces at the very start. We have our SETUP, ROUTES, and LISTENER sections.
@@ -85,3 +99,12 @@ Otherwise, if you are following along on your computer locally, just navigate to
 The end result will be a string of text in the browser saying "The server is running!":
 
 ![server is running in browser](./assets/flip-hosting.png)
+
+# Running Step 0 with `forever`
+
+Before you wrap up your assignment, you want to make sure it stays up even after you log off. Stop `node`, then, from the root of your project, run the command `forever start app.js`. You
+should then see a few lines of text indicating that your `app.js` is being processed like this:
+
+![server is running in browser with forever](./assets/forever-running.png)
+
+You can verify that your project will run forever (pun sort-of intended), by closing out of your terminal now. Ensure you are still connected to the OSU VPN and navigate to your web application again. If it loads, `forever` is working.
