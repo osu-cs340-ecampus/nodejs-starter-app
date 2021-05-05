@@ -29,6 +29,10 @@ npm i express --save
 
 ## Install `forever`
 
+We need to install the forever code, so the first command you have to run is going to be 
+```bash
+npm i forever --save
+```
 In short, if you were to run the command `node app.js` right now from the root of your project, you would be able to access it, via your browser. It would continue to work... until you logged out of the SSH session. We want this project to run forever (pardon the pun), so that it stays up until we want it to come down.
 
 For reasons beyond your control, running `forever` is a bit more complex on the school's FLIP server. Here is how to make it easy, run the following command from the root of your project:
