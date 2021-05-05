@@ -47,6 +47,8 @@ Now, whenever you run `forever` from the *root* of any project that has the fore
 
 ## App.js
 
+You will need to create an `app.js` in the root of your project folder. Create a new file, and save it as `app.js` 
+
 Our `app.js` is broken into three pieces at the very start. We have our SETUP, ROUTES, and LISTENER sections.
 
 The SETUP neatly contains all of the variables we will need to effectively run the server and handle data. We will add things to
