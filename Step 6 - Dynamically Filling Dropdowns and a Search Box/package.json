@@ -1,0 +1,17 @@
+{
+  "name": "step-5",
+  "version": "1.0.0",
+  "description": "At this point, we are able to effectively retrieve data from the database, and present it in a meaningful manner to the user of the application. We can now explore how to interact with that data.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "George Kochera",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
+}
