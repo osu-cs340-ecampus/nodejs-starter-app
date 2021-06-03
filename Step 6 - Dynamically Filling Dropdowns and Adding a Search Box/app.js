@@ -31,29 +31,47 @@ app.use(express.static('public'));
 // GET ROUTES
 app.get('/', function(req, res)
 {
-
+    // Declare Query 1
     let query1;
 
+    // If there is no query string, we just perform a basic SELECT
     if (req.query.lname === undefined)
     {
         query1 = "SELECT * FROM bsg_people;";
     }
+
+    // If there is a query string, we assume this is a search, and return desired results
     else
     {
         query1 = `SELECT * FROM bsg_people WHERE lname LIKE "${req.query.lname}%"`
     }
 
+    // Query 2 is the same in both cases
     let query2 = "SELECT * FROM bsg_planets;";
 
+    // Run the 1st query
     db.pool.query(query1, function(error, rows, fields){
         
+        // Save the people
         let people = rows;
         
+        // Run the second query
         db.pool.query(query2, (error, rows, fields) => {
             
+            // Save the planets
             let planets = rows;
 
-            return res.render('index', {data: people, planets: planets});
+            // Construct an object for reference in the table
+            // Array.map is awesome for doing something with each
+            // element of an array.
+            let planet_map = {}
+            planets.map(planet => {
+                let id = parseInt(planet.id, 10);
+                console.log(typeof id)
+                planet_map[id] = planet["name"];
+            })
+            console.log(planet_map)
+            return res.render('index', {data: people, planets: planets, planet_map: planet_map});
         })
 
 
