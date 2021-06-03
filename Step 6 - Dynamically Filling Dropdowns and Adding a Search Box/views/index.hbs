@@ -38,6 +38,17 @@
     </tbody>
 </table>
 
+{{!-- Form to search by last name --}}
+<h2>Search Using an HTML Form</h2>
+<p>Search by last name using the field below. Partial last names are OK too!</p>
+<form id="search-person-html" method='GET' action='/'>
+    <label for="input-lname">Search by Last Name: </label>
+    <input type="text" name="lname" id="input-lname-html-search">
+    
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+
 {{!-- Form to add a record to the table using AJAX --}}
 <h2>Adding Data with AJAX</h2>
 <p>To add a new person, please enter their information below and click 'Submit'!</p>

@@ -29,12 +29,23 @@ app.use(express.static('public'));
 */
 
 // GET ROUTES
-app.get('/', async function(req, res)
+app.get('/', function(req, res)
 {
-    let query1 = "SELECT * FROM bsg_people;";
+
+    let query1;
+
+    if (req.query.lname === undefined)
+    {
+        query1 = "SELECT * FROM bsg_people;";
+    }
+    else
+    {
+        query1 = `SELECT * FROM bsg_people WHERE lname LIKE "${req.query.lname}%"`
+    }
+
     let query2 = "SELECT * FROM bsg_planets;";
-    
-    db.pool.query(query1, async function(error, rows, fields){
+
+    db.pool.query(query1, function(error, rows, fields){
         
         let people = rows;
         
