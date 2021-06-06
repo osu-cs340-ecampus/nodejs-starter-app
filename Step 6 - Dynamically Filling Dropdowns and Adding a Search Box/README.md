@@ -55,7 +55,7 @@ Ok, now that we are passing the correct data to the template engine (Handlebars)
 
 > If you are using AJAX, the `id` field is very important since your DOM manipulation is likely targetting a specific ID. Ensure that your ID of your old `<input>` tag matches the ID of the new `<select>` tag you replace it with.
 
-So what is going on here? The `<select>` tag tells the browser to create a dropdown. The name is important when we are using this tag in conjunction with an HTML form. ID is important for DOM targetting. You then see two `<option>` tags. These tags are each option that appears in the dropdown. The reason we have two is there is a default one (the first one) with no value, and simply says `Select a Planet`. This will be the the first thing a user sees on the page. It's what UI/UX Designers call a "Call to Action". 
+So what is going on here? The `<select>` tag tells the browser to create a dropdown. The `name` property is important when we are using this tag in conjunction with an HTML form. ID is important for DOM targetting. You then see two `<option>` tags. These tags are each option that appears in the dropdown. The reason we have two is there is a default one (the first one) with no value, and simply says `Select a Planet`. This will be the the first thing a user sees on the page. It's what UI/UX Designers call a "Call to Action". 
 
 The second `<option>` tag is enclosed in a Handlebars `each` helper. We used this to create the individual rows in the table earlier. We are using it again to create all the different options from the list of Planets we pass in.
 
