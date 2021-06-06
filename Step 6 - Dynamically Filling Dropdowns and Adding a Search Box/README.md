@@ -42,7 +42,7 @@ Notice, we also added a second property to the `res.render(...)` call at the ver
 
 ## Update the Handlebars template
 
-Ok, now that we are passing the correct data to the template engine (Handlebars), we can now use that data to populate a dropdown. Inside your `index.hbs` file, scroll to the section where you created the form to add a new person to the database. It will look like a bunch of `<label>` tags, each followed by `<input>` tags. Delete or comment out the `<input>` tag. Now replace it with the `<select>` tag below!
+Ok, now that we are passing the correct data to the template engine (Handlebars), we can now use that data to populate a dropdown. Inside your `index.hbs` file, scroll to the section where you created the form to add a new person to the database. It will look like a bunch of `<label>` tags, each followed by `<input>` tags. Delete or comment out the `<input>` tag for the `homeworld` input field. Now replace it with the `<select>` tag below!
 
 ```html
     <select name="input-homeworld" id="input-homeworld-ajax">
