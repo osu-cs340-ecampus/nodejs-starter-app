@@ -282,7 +282,16 @@ Ok, wow, arrow functions, a map function, we're getting a bit technical now.
 
 In JavaScript, `Array.map` is a function. For any array, if you call the `map` function on it, it will iterate through every member of the array, in order, and do whatever you want with each member. This is an AWESOME function, but for beginners, it can be quite daunting to understand. `Array.map` returns a new Array. If you are creating a new Array, you must `return` the value you want placed in the new Array. If you are manipulating something else and just using the values from the array, you don't need to return anything.
 
-> I'm using arrow notation here, again, not hard stuff, but daunting if you don't know what you are looking at. Just know that it works like this (function argument => {function definition}). Arrow functions are regular functions that just are not named. Same thing as lambdas in Python.
+> I'm using arrow notation here, again, not hard stuff, but daunting if you don't know what you are looking at. Just know that it works like this:
+>```javascript
+> variable => { function }
+> // variable is an argument passed to the function
+> // function is what you do with that variable
+>
+> // you can pass more than one variable in like this
+> (var1, var2, var3) => { function }
+>```
+> Arrow functions are regular functions that just are not named. Same thing as lambdas in Python.
 
 The first `planets.map` populates the empty object `planetmap`. Here is exactly what it is doing; It is turning data like this:
 
