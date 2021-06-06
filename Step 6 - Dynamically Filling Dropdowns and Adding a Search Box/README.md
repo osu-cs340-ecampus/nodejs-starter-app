@@ -280,7 +280,7 @@ We need to make a very slight, but somewhat technical addition to our `app.js`. 
 
 Ok, wow, arrow functions, a map function, we're getting a bit technical now. 
 
-In JavaScript, `Array.map` is a function. For any array, if you call the `map` function on it, it will iterate through every member of the array, in order, and do whatever you want to each member. This is an AWESOME function, but for beginners, it can be quite daunting to understand. `Array.map` returns a new Array. If you are creating a new Array, you must `return` the value you want placed in the new Array. If you are manipulating something else and just using the values from the array, you don't need to return anything.
+In JavaScript, `Array.map` is a function. For any array, if you call the `map` function on it, it will iterate through every member of the array, in order, and do whatever you want to with member. This is an AWESOME function, but for beginners, it can be quite daunting to understand. `Array.map` returns a new Array. If you are creating a new Array, you must `return` the value you want placed in the new Array. If you are manipulating something else and just using the values from the array, you don't need to return anything.
 
 > I'm using arrow notation here, again, not hard stuff, but daunting if you don't know what you are looking at. Just know that it works like this (function argument => {function definition}). Arrow functions are regular functions that just are not named. Same thing as lambdas in Python.
 
