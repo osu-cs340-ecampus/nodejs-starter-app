@@ -59,7 +59,7 @@ So what is going on here? The `<select>` tag tells the browser to create a dropd
 
 The second `<option>` tag is enclosed in a Handlebars `each` helper. We used this to create the individual rows in the table earlier. We are using it again to create all the different options from the list of Planets we pass in.
 
-The data coming over from our `app.js` looks similar to this:
+The data coming over from our `app.js` looks similar to this (you can `console.log` it and this is what you'd see):
 
 ```javascript
 [
