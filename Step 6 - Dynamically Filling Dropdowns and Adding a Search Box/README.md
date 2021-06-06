@@ -244,6 +244,8 @@ So right now, the output of our table looks something like this:
 
 Notice, the `homeworld` column displays its values as the Planet's `id`. What is planet 3? What is planet 1? This isn't very helpful. Imagine, going to your favorite online retailer, and scrolling through a list of product ID's or SKUs. Exactly. Let's fix that.
 
+This can be achieved in a variety of ways. You can do it skillfully with an `SQL JOIN` statement. That would work, and would be efficient because you only have to run a single query. You can do it with AJAX after the page renders, its a bit more costly because it requires at least 2 requests to achieve. You can do it in the Handlebars renderer by adding a custom helper function. We are going to do it with plain old JavaScript in our `app.js`.
+
 We need to make a very slight, but somewhat technical addition to our `app.js`. The code we will be adding will come in our root route, right after `let planets = rows`.
 
 ```javascript
