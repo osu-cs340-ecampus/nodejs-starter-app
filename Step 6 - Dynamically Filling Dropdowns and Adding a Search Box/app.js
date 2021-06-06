@@ -71,6 +71,7 @@ app.get('/', function(req, res)
                 planetmap[id] = planet["name"];
             })
 
+            // Overwrite the homeworld ID with the name of the planet in the people object
             people = people.map(person => {
                 return Object.assign(person, {homeworld: planetmap[person.homeworld]})
             })

@@ -234,13 +234,49 @@ Here we run both queries, one as the callback function of the next. We save the 
 
 And then we return, the data, just as before! We can save everything, go back to our web page to test it out!
 
+![bsg-people search working with numerical planet ids](./assets/search-numbers.gif)
 
+# Bonus - Dynamically Expressing ID's as Names (Data Conversion)
 
-# Dynamically Expressing ID's as Names (Data Conversion)
+So right now, the output of our table looks something like this:
 
-In 
+![bsg-people displayed with numerical planet ids](./assets/numbers.png)
 
-Ok, getting a bit technical now. 
+Notice, the `homeworld` column displays its values as the Planet's `id`. What is planet 3? What is planet 1? This isn't very helpful. Imagine, going to your favorite online retailer, and scrolling through a list of product ID's or SKUs. Exactly. Let's fix that.
+
+We need to make a very slight, but somewhat technical addition to our `app.js`. The code we will be adding will come in our root route, right after `let planets = rows`.
+
+```javascript
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
+            
+            // Save the planets
+            let planets = rows; 
+
+            // BEGINNING OF NEW CODE
+
+            // Construct an object for reference in the table
+            // Array.map is awesome for doing something with each
+            // element of an array.
+            let planetmap = {}
+            planets.map(planet => {
+                let id = parseInt(planet.id, 10);
+
+                planetmap[id] = planet["name"];
+            })
+
+            // Overwrite the homeworld ID with the name of the planet in the people object
+            people = people.map(person => {
+                return Object.assign(person, {homeworld: planetmap[person.homeworld]})
+            })
+
+            // END OF NEW CODE
+
+            return res.render('index', {data: people, planets: planets});
+        })
+```
+
+Ok, wow, arrow functions, a map function, we're getting a bit technical now. 
 
 In JavaScript, `Array.map` is a function. For any array, if you call the `map` function on it, it will iterate through every member of the array, in order, and do whatever you want to each member. This is an AWESOME function, but for beginners, it can be quite daunting to understand. `Array.map` returns a new Array. If you are creating a new Array, you must `return` the value you want placed in the new Array. If you are manipulating something else and just using the values from the array, you don't need to return anything.
 
@@ -268,3 +304,17 @@ Into data like this
     13: "Pluto"
 }
 ```
+
+Once you make this change, go back to your web application after restarting the web server. Let's check it out now!
+
+![bsg-people displayed with textual planet ids](./assets/names.png)
+
+There we go! Now, the data displayed in our table is more meaningful. 
+
+# Wrap-up
+
+At this point, you should have developed a fairly comfortable handle using these techniques and implementing them. This is merely an overview though. The biggest piece of advice I can give you is to try something, test it, see if it works, if it does, try to break it, and if it doesn't break, move on and learn more!
+
+We added drop-down menus that are dynamically populated, we added a search function to our page, and as a bonus, we replaced opaque `ids` of Planets with their actual names. And the end result is definitely an improvement for the user and their experience.
+
+![bsg-people complete with textual planet ids and search](./assets/search-box-function.gif)
