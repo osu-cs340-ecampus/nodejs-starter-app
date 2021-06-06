@@ -64,14 +64,18 @@ app.get('/', function(req, res)
             // Construct an object for reference in the table
             // Array.map is awesome for doing something with each
             // element of an array.
-            let planet_map = {}
+            let planetmap = {}
             planets.map(planet => {
                 let id = parseInt(planet.id, 10);
-                console.log(typeof id)
-                planet_map[id] = planet["name"];
+
+                planetmap[id] = planet["name"];
             })
-            console.log(planet_map)
-            return res.render('index', {data: people, planets: planets, planet_map: planet_map});
+
+            people = people.map(person => {
+                return Object.assign(person, {homeworld: planetmap[person.homeworld]})
+            })
+
+            return res.render('index', {data: people, planets: planets});
         })
 
 
@@ -114,6 +118,8 @@ app.post('/add-person-ajax', function(req, res)
             query2 = `SELECT * FROM bsg_people;`;
             db.pool.query(query2, function(error, rows, fields){
 
+                let people = rows;
+
                 // If there was an error on the second query, send a 400
                 if (error) {
                     
@@ -124,7 +130,29 @@ app.post('/add-person-ajax', function(req, res)
                 // If all went well, send the results of the query back.
                 else
                 {
-                    res.send(rows);
+                    // If there was no error, perform a SELECT * on bsg_planets
+                    query3 = `SELECT * FROM bsg_planets;`;
+                    db.pool.query(query3, function(error, rows, fields){
+                        
+                        // Save the planets
+                        let planets = rows;
+
+                        // Construct an object for reference in the table
+                        // Array.map is awesome for doing something with each
+                        // element of an array.
+                        let planetmap = {}
+                        planets.map(planet => {
+                            let id = parseInt(planet.id, 10);
+
+                            planetmap[id] = planet["name"];
+                        })
+
+                        people = people.map(person => {
+                            return Object.assign(person, {homeworld: planetmap[person.homeworld]})
+                        })
+
+                        res.send(people);
+                    })
                 }
             })
         }
