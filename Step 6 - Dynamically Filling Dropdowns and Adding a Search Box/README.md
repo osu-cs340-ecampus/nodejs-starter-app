@@ -2,7 +2,7 @@
 
 Seems complicated, but really it's the matter of executing one extra query before we render our webpage. This section will show you how to populate a dropdown `<select>` HTML element with meaningful values for Planets instead of just having the user manually type in the ID of the Planet. 
 
-We will also cover adding a search feature to the page so that you can filter the results in your table.
+We will also cover adding a search feature to the page so that you can filter the results in your table and an extra bonus to make your data more meaningful.
 
 # Dynamic Dropdown
 
@@ -331,3 +331,5 @@ At this point, you should have developed a fairly comfortable handle using these
 We added drop-down menus that are dynamically populated, we added a search function to our page, and as a bonus, we replaced opaque `ids` of Planets with their actual names. And the end result is definitely an improvement for the user and their experience.
 
 ![bsg-people complete with textual planet ids and search](./assets/search-box-function.gif)
+
+![bsg-people complete with textual planet ids and search picture](./assets/search-and-dynamic-final.png)
