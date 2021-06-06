@@ -293,7 +293,7 @@ In JavaScript, `Array.map` is a function. For any array, if you call the `map` f
 >```
 > Arrow functions are regular functions that just are not named. Same thing as lambdas in Python.
 
-The first `planets.map` populates the empty object `planetmap`. Here is exactly what it is doing; It is turning data like this:
+`planets.map` populates the empty object `planetmap`. Here is exactly what it is doing; It is turning data like this:
 
 ```javascript
 [
@@ -315,6 +315,8 @@ Into data like this
     13: "Pluto"
 }
 ```
+
+`people.map` is now using that `planetmap` object we just created in the first function, to overwrite the `homeworld` value, for every person in the `people` array with the `name` of the Planet. It does this by taking the old `homeworld` value, and looking up that key in `peoplemap` and replacing the `homeworld` value for each person with the mapped value for that planet, the `name`.
 
 Once you make this change, go back to your web application after restarting the web server. Let's check it out now!
 
