@@ -3,7 +3,6 @@
 */
 
 // Express
-const { engine } = require('express-handlebars');
 var express = require('express');
 var app = express();
 PORT = 9124;
@@ -12,6 +11,7 @@ PORT = 9124;
 var db = require('./database/db-connector');
 
 // Handlebars
+const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
 app.engine('.hbs', exphbs({
     extname: ".hbs"
