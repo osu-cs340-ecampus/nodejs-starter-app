@@ -97,11 +97,11 @@ In the top of our `app.js` file, we need to add the following to the SETUP secti
 // app.js
 
 var exphbs = require('express-handlebars');     // Import express-handlebars
-app.engine('.hbs', engine({extname: '.hbs' }));
-//app.engine('.hbs', exphbs({                     // Create an instance of the handlebars engine to process templates
-//    extname: ".hbs"
-//}));
+app.engine('.hbs', exphbs({                     // Create an instance of the handlebars engine to process templates
+    extname: ".hbs"
+}));
 app.set('view engine', '.hbs');                 // Tell express to use the handlebars engine whenever it encounters a *.hbs file.
+
 ```
 
 And in our ROUTES section, we are going to remove everything that was in the root route and replace it with this:
