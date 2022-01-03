@@ -49,7 +49,7 @@ You are going to need a few things get going here.
 
 ## Text Editior
 
-Text Editors are like clothes. Everyone has their preferences. I prefer VS Code so this guide will be built using that editor. You can use what you please. Atom, Sublime, Notepad, Vim, eMacs or even Notepad are completely acceptable. We just need to be able to edit our code.
+Text Editors are like clothes. Everyone has their preferences. I prefer VS Code so this guide will be built using that editor. You can use what you please. Atom, Sublime, Vim, eMacs or even Notepad are completely acceptable. We just need to be able to edit our code.
 
 ## Browser
 
