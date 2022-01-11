@@ -117,7 +117,8 @@ app.get('/', function(req, res)
                     db.pool.query(query4, function(err, results, fields){
 
                         // Send the results to the browser
-                        res.send(JSON.stringify(results));
+                        let base = "<h1>MySQL Results:</h1>"
+                        res.send(base + JSON.stringify(results));
                     });
                 });
             });
@@ -134,6 +135,11 @@ The most straightforward way of getting queries we want to execute is to write e
 Remember we assigned the whole database configuration in `db-connector.js` to `module.exports.pool`, and then we specified in `app.js` that `db = require('./database/db-connector')`. So we export an object containing an object with a key `pool`, and in `app.js` assign that object to `db`. This is why we have to run queries by first typing `db.pool.*`. You might be asking, and you should know why!
 
 Lastly, we need to perform `JSON.stringify(results)` before sending the data back to the client browser. Try sending the results back without doing this, note the difference, not what we want.
+
+Once you try out `JSON.stringify(results)` to see the result, replace it with the these two lines of code:
+
+`let base = "<h1>MySQL Results:</h1>"`
+`res.send(base + JSON.stringify(results));`
 
 Assuming you got all of that, we should be able to restart our server, and get the following results:
 
