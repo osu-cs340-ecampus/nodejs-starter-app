@@ -138,7 +138,7 @@ Lastly, we need to perform `JSON.stringify(results)` before sending the data bac
 
 Once you try out `JSON.stringify(results)` to see the result, replace it with the these two lines of code:
 
-`let base = "<h1>MySQL Results:</h1>"`
+`let base = "<h1>MySQL Results:</h1>"` <br />
 `res.send(base + JSON.stringify(results));`
 
 Assuming you got all of that, we should be able to restart our server, and get the following results:
