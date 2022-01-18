@@ -120,13 +120,13 @@ app.delete('/delete-person/:personID', function(req,res,next){                  
 
 It is possible that a person can have their id in two different tables since they can exist within their native table bsg_people and the intersection table bsg_cert_people.  To handle this we first remove them from the intersection table by using the query on line 92, then we remove them from their native table bsg_people with the query on line 93.
 
-Since every http communication has a request and response its important to send back a response even if the front-end doesn't need any data (since we are just deleting 1 row), for this reason we send back a status of 204 (No Content) common for PUT or DELETE.
+Since every http communication has a request and response its important to send back a response even if the front-end doesn't need any data.  A lack of a response from the back-end will cause the front-end to hang and wait for a response.  Since we are just deleting 1 row and don't need to send back any new data we will send back a status of 204 (No Content) common for PUT or DELETE.
 
-Notes: HTML forms only support POST and GET which means a form for updating or deleting won't work for app.put and app.delete routes respectively. It is also very important to always include error handlers when making queries so that if an error occurs the proper status can be displayed.
+Notes: HTML forms only support POST and GET which means a form for updating or deleting won't work for app.put and app.delete routes respectively. It is also important to always include error handlers after performing queries so that if an error occurs the proper status can be displayed.
 
 ## Update add_person.js
 
-Now its important to update our previous javascript file add_person.js so that when new files are added through ajax they get a delete column with a working delete button since as of now new rows added won't get their proper delete button unless the page is refreshed.
+Now its important to update our previous javascript file add_person.js so that when new rows are added through ajax they get a delete column with a working delete button since as of now new rows added won't get their proper delete button unless the page is refreshed.
 
 Modify your addRowToTable function in add_person.js to include a new table data cell and button like the following code:
 
@@ -187,6 +187,6 @@ addRowToTable = (data) => {
 }
 ```
 
-Now you should be able to delete rows from page refresh due to the changes we made to the handlebars file and you should be able to delete new rows created through ajax request without having to refresh the page.  The final result should look like the following.
+Now you should be able to delete rows due to the changes we made to the handlebars file and you should be able to delete new rows created through ajax request without having to refresh the page.  The final result should look like the following.
 
-![delete person button](./assets/UpdateForm.JPG)
+![delete person button](./assets/deleteButton.JPG)
