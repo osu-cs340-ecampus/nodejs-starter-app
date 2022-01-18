@@ -122,7 +122,7 @@ It is possible that a person can have their id in two different tables since the
 
 Since every http communication has a request and response its important to send back a response even if the front-end doesn't need any data (since we are just deleting 1 row), for this reason we send back a status of 204 (No Content) common for PUT or DELETE.
 
-Notes: HTML forms only support POST and GET which means a form for updating or deleting will have to be handled through an app.post route unless ajax is used to send the request then app.put and app.delete routes can be used.  It is also very important to always include error handlers when making queries so that if an error occurs the proper status can be displayed.
+Notes: HTML forms only support POST and GET which means a form for updating or deleting won't work for app.put and app.delete routes respectively. It is also very important to always include error handlers when making queries so that if an error occurs the proper status can be displayed.
 
 ## Update add_person.js
 
