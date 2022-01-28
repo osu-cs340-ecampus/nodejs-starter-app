@@ -133,7 +133,7 @@ function updateRow(data, personID){
 
 There may be some familiar and some new features here. First off before sending the PUT request for update we check that the user clicked a value for homeworld that isn't null. The check for null is needed because of how the sql for the bsg_people table is setup we can't update values for home world to NULL. This check prevents accidentally causing an sql error in the backend query.
 
-Another familiar feature is that we are iterating through the tr in the people table to find the one that matches our personID of the person we just updated and once we find that TD we are indexing into the table and getting the TD for home world so we can finally update the text to the new planet's name.
+Another familiar feature is that we are iterating through the tr in the people table to find the one that matches our personID of the person we just updated and once we find that we are indexing into the table and getting the TD for home world so we can finally update the text to the new planet's name.
 
 
 One important last step before we move on to the back-end side of things. Open up the add_person.js file in the same directory and make some changes to the addRowToTable function like the following.
@@ -260,6 +260,6 @@ Now you should be able to update rows due to the changes we made to the handleba
 
 ## One last task!
 
-In this step we covered how to dynamically add newly created people to the update drop down menu via the changes reflected in the app_person.js file, however we did not cover how to dynamically delete person data from the drop down menu when we delete them which means people will be left in the drop down menu after deletion till the page is refreshed (try it now to see!).
+In this step we covered how to dynamically add newly created people to the update drop down menu via the changes reflected in the add_person.js file, however we did not cover how to dynamically delete person data from the drop down menu when we delete them which means people will be left in the drop down menu after deletion till the page is refreshed (try it now to see!).
 
 See if you can hack it yourself so that the drop down menu can be updated dynamically in the opposite way this step covered. Good luck!
