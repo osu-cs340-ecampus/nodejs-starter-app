@@ -4,7 +4,7 @@ So far this guide has walked you through how to approach implementing reading, a
 
 ## Update the Handlebars template
 
-The first step to implementing Update is to create a update form in our index.hbs file.  With your index.hbs open in your IDE of choice change add the following lines of code towards the bottom of the file:
+The first step to implementing Update is to create a update form in our index.hbs file.  With your index.hbs open in your IDE of choice add the following lines of code towards the bottom of the file:
 
 ```html
 <h2>Updating A User's HomeWorld Form</h2>
@@ -65,7 +65,7 @@ updatePersonForm.addEventListener("submit", function (e) {
     let homeworldValue = inputHomeworld.value;
 
     // currently the database table for bsg_people does not allow updating values to NULL
-    // so we must abort if being bassed NULL for homeworld
+    // so we must abort if being passed NULL for homeworld
 
     if (isNaN(homeworldValue))
     {
