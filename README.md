@@ -41,6 +41,9 @@ Whenever the Step requires database interactivity, you will need to load your ow
 - [Step 3 - Integrating a Templating Engine (Handlebars)](/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)/)
 - [Step 4 - Dynamically Displaying Data](/Step%204%20-%20Dynamically%20Displaying%20Data/)
 - [Step 5 - Adding New Data](/Step%205%20-%20Adding%20New%20Data/)
+- [Step 6 - Dynamically Filling Dropdowns and Adding a Search Box](Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box)
+- [Step 7 - Dynamically Deleting Data ](/Step%207%20-%20Dynamically%20Deleting%20Data)
+- [Step 8 - Dynamically Updating Data](Step%208%20-%20Dynamically%20Updating%20Data)
 - [Extra Documentation](#extra-documentation)
 
 # Get The Tools Downloaded You Will Need
