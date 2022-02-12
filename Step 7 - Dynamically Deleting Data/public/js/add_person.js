@@ -91,7 +91,6 @@ addRowToTable = (data) => {
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        currentTable.deleteRow(newRowIndex);
         deletePerson(newRow.id);
     };
 
@@ -104,6 +103,9 @@ addRowToTable = (data) => {
     row.appendChild(ageCell);
     row.appendChild(deleteCell);
     
+    // Add a row attribute so the deleteRow function can find a newly added row
+    row.setAttribute('data-value', newRow.id);
+
     // Add the row to the table
     currentTable.appendChild(row);
 }
