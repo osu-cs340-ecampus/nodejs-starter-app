@@ -1,10 +1,10 @@
 # Node.js - Step 7 - Dynamically Deleting Data
 
-Up to this point the starter guide has covered how to create your very first server and how to grow that into an admin facing website that can display data from a database to the user in a simple and organized manner.  The guide has even covered how to create new entries into the database via the front-end of the website. Now we will cover how to implement a delete function.
+Up to this point the starter guide has covered how to create your very first server and how to grow that into an admin facing website that can dynamically display data from a database in a simple and organized manner.  The guide up to this point has also covered how to create new entries into the database via the front-end of the website. For project step 7 we will cover how to implement a delete function.
 
 ## Update the Handlebars template
 
-The first step to implementing Delete is to create a delete button in our index.hbs file.  With your index.hbs open in your IDE of choice change your people table code to look like the following:
+The first step to implementing Delete is to create a delete button in our index.hbs file.  With your index.hbs open in your IDE of choice change your people-table to look like the following:
 
 ```html
 <table id="people-table">>
