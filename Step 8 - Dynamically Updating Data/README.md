@@ -1,6 +1,6 @@
 # Node.js - Step 8 - Dynamically Updating Data
 
-So far this guide has walked you through how to approach implementing reading, adding, and even deleting data from a database via an admin facing website.  The previous steps covered were representative of the C, R, and D in CRUD, but there is one last principle we have yet to implement. That is update which stands for the U in CRUD.  This step guide will help walk you through dynamically implementing update with a drop down menu. At the end of this step you will have a few changes to implement on your own to really make the update feature feel fluid.
+So far, this guide has walked you through how to approach implementing reading, adding, and deleting data from a database via an admin facing website. The previous steps covered were representative of the C, R, and D in CRUD, but there is one last principle we have yet to implement which is U. The letter U in CRUD is representative of update. Step 8 of the guide will help walk you through dynamically implementing update with a drop-down menu. At the end of this step, you will have a few changes to implement on your own to really make the update feature feel fluid.
 
 ## Update the Handlebars template
 
@@ -35,7 +35,7 @@ The first step to implementing Update is to create a update form in our index.hb
 
 The Update feature will be similar to the add person form via ajax.
 
-Also, while we are here the script tag is placed at the bottom AFTER the form for good reason. If we were to place the script tag for update_person.js before the update form we would have issues with a null object when trying to get the form and add a listener (due to javascript loading before form in that instance). So make sure you keep the script tag after the form like in the example code above.
+Also, while we are here the script tag is placed at the bottom AFTER the form for good reason. If we were to place the script tag for update_person.js before the update form, we would have issues with a null object when trying to get the form and add a listener (due to JavaScript loading before form in that instance). So, make sure you keep the script tag after the form like in the example code above.
 
 The script tag will help us locate our update_person.js file we will create in the next step.
 
@@ -131,7 +131,7 @@ function updateRow(data, personID){
 
 ```
 
-There may be some familiar and some new features here. First off before sending the PUT request for update we check that the user clicked a value for homeworld that isn't null. The check for null is needed because of how the sql for the bsg_people table is setup we can't update values for home world to NULL. This check prevents accidentally causing an sql error in the backend query.
+There may be some familiar and some new features here. First off before sending the PUT request for update we check that the user clicked a value for homeworld that isn't null. The check for null is needed because of how the sql for the bsg_people table is setup we can't update values for home world to NULL. This check prevents accidentally causing a sql error in the backend query.
 
 Another familiar feature is that we are iterating through the tr in the people table to find the one that matches our personID of the person we just updated and once we find that we are indexing into the table and getting the TD for home world so we can finally update the text to the new planet's name.
 
@@ -204,7 +204,7 @@ addRowToTable = (data) => {
     // End of new step 8 code.
 }
 ```
-There are a few new changes here presented, the first of which is to add a custom attribute to the newly created row. The addition of the custom attribute is so that when we create new rows via ajax we can then immediately find them when we have to search for them when updating rows. So now, when a user creates a new person row via ajax they can immediately update that person's home world without having to refresh the page at all. The next set of changes is to basically add the newly created persons data to the drop down menu so that we can have their info immediately reflected in the update drop down menu without having to refresh the page.
+There are a few new changes presented here, the first of which is to add a custom attribute to the newly created row (if not added from previous step 7). The addition of the custom attribute is so that when we create new rows via ajax, we can then immediately find them when we must search for them when updating or deleting rows. So now, when a user creates a new person row via ajax, they can immediately update that person's home world without having to refresh the page at all. The next set of changes is to basically add the newly created persons data to the drop-down menu so that we can have their info immediately reflected in the update drop down menu without having to refresh the page.
 
 ## Update the back-end (app.js)
 
@@ -260,6 +260,6 @@ Now you should be able to update rows due to the changes we made to the handleba
 
 ## One last task!
 
-In this step we covered how to dynamically add newly created people to the update drop down menu via the changes reflected in the add_person.js file, however we did not cover how to dynamically delete person data from the drop down menu when we delete them which means people will be left in the drop down menu after deletion till the page is refreshed (try it now to see!).
+In this step we covered how to dynamically add newly created people to the update drop down menu via the changes reflected in the add_person.js file, however we did not cover how to dynamically delete person data from the drop-down menu when we delete them which means people will be left in the drop-down menu after deletion till the page is refreshed (try it now to see!).
 
-See if you can hack it yourself so that the drop down menu can be updated dynamically in the opposite way this step covered. Good luck!
+See if you can hack it yourself so that the drop-down menu can be updated dynamically in the opposite way this step covered. Good luck
