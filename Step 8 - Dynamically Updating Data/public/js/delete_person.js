@@ -18,8 +18,21 @@ function deleteRow(personID){
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == personID) {
             table.deleteRow(i);
+            deleteDropDownMenu(personID);
             break;
        }
     }
+}
+
+
+function deleteDropDownMenu(personID){
+  let selectMenu = document.getElementById("mySelect");
+  for (let i = 0; i < selectMenu.length; i++){
+    if (Number(selectMenu.options[i].value) === Number(personID)){
+      selectMenu[i].remove();
+      break;
+    } 
+
+  }
 }
 
