@@ -258,3 +258,47 @@ Now you should be able to update rows due to the changes we made to the handleba
 In this step we covered how to dynamically add newly created people to the update drop down menu via the changes reflected in the add_person.js file, however we did not cover how to dynamically delete person data from the drop-down menu when we delete them which means people will be left in the drop-down menu after deletion till the page is refreshed (try it now to see!).
 
 See if you can hack it yourself so that the drop-down menu can be updated dynamically in the opposite way this step covered. Good luck
+
+## See below for code to dynamically remove people from the drop down menu
+
+```javascript
+function deletePerson(personID) {
+  let link = '/delete-person/';
+  link += personID;
+  $.ajax({
+    url: link,
+    type: 'DELETE',
+    success: function(result) {
+      deleteRow(personID);
+    }
+  })
+}
+
+function deleteRow(personID){
+
+    let table = document.getElementById("people-table");
+    for (let i = 0, row; row = table.rows[i]; i++) {
+       //iterate through rows
+       //rows would be accessed using the "row" variable assigned in the for loop
+       if (table.rows[i].getAttribute("data-value") == personID) {
+            table.deleteRow(i);
+            deleteDropDownMenu(personID);
+            break;
+       }
+    }
+}
+
+
+function deleteDropDownMenu(personID){
+  let selectMenu = document.getElementById("mySelect");
+  for (let i = 0; i < selectMenu.length; i++){
+    if (Number(selectMenu.options[i].value) == Number(personID)){
+      selectMenu[i].remove();
+      break;
+    } 
+
+  }
+}
+
+```
+
