@@ -292,7 +292,7 @@ function deleteRow(personID){
 function deleteDropDownMenu(personID){
   let selectMenu = document.getElementById("mySelect");
   for (let i = 0; i < selectMenu.length; i++){
-    if (Number(selectMenu.options[i].value) == Number(personID)){
+    if (Number(selectMenu.options[i].value) === Number(personID)){
       selectMenu[i].remove();
       break;
     } 
