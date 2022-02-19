@@ -90,7 +90,6 @@ addRowToTable = (data) => {
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        currentTable.deleteRow(newRowIndex);
         deletePerson(newRow.id);
     };
 
@@ -104,19 +103,18 @@ addRowToTable = (data) => {
     row.appendChild(ageCell);
     row.appendChild(deleteCell);
     
+    // Add a custom row attribute so the deleteRow function can find a newly added row
+    row.setAttribute('data-value', newRow.id);
+
     // Add the row to the table
     currentTable.appendChild(row);
 
     // Start of new Step 8 code for adding new data to the dropdown menu for updating people
     
-    // Set a custom attribute to the new row like previous table rows so the update function can find newly added
-    // rows via ajax
-    row.setAttribute('data-value', newRow.id);
-
     // Find drop down menu, create a new option, fill data in the option (full name, id),
-    // then append option to drop down menu so newly created rows via ajax will be found in it without refresh needed
-    var selectMenu = document.getElementById("mySelect");
-    var option = document.createElement("option");
+    // then append option to drop down menu so newly created rows via ajax will be found in it without needing a refresh
+    let selectMenu = document.getElementById("mySelect");
+    let option = document.createElement("option");
     option.text = newRow.fname + ' ' +  newRow.lname;
     option.value = newRow.id;
     selectMenu.add(option);

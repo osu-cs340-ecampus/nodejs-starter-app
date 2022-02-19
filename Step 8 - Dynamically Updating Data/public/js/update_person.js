@@ -58,22 +58,21 @@ updatePersonForm.addEventListener("submit", function (e) {
 function updateRow(data, personID){
     let parsedData = JSON.parse(data);
     
-    var table = document.getElementById("people-table");
-    var counter;
+    let table = document.getElementById("people-table");
 
-    for (var i = 0, row; row = table.rows[i]; i++) {
+    for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == personID) {
-            var counter = i;
+
             // Get a reference to the people's table we are updating
             let currentTable = document.getElementById("people-table");
 
             // Get the location of the row where we found the matching person ID
-            let updateRowIndex = currentTable.getElementsByTagName("tr")[counter];
+            let updateRowIndex = currentTable.getElementsByTagName("tr")[i];
 
             // Get td of homeworld value
-            var td = updateRowIndex.getElementsByTagName("td")[3];
+            let td = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign homeworld to our value we updated to
             td.innerHTML = parsedData[0].name; 
