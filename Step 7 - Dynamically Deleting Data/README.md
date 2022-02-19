@@ -60,7 +60,7 @@ Next, open up the newly created delete_person.js file and paste the following li
 
 ```javascript
 function deletePerson(personID) {
-  var link = '/delete-person/';
+  let link = '/delete-person/';
   link += personID;
   $.ajax({
     url: link,
@@ -72,8 +72,8 @@ function deletePerson(personID) {
 }
 
 function deleteRow(personID){
-    var table = document.getElementById("people-table");
-    for (var i = 0, row; row = table.rows[i]; i++) {
+    let table = document.getElementById("people-table");
+    for (let i = 0, row; row = table.rows[i]; i++) {
        if (table.rows[i].getAttribute("data-value") == personID) {
             table.deleteRow(i);
             break;
