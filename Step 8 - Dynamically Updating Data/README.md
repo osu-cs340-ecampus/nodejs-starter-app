@@ -52,7 +52,7 @@ let updatePersonForm = document.getElementById('update-person-form-ajax');
 
 // Modify the objects we need
 updatePersonForm.addEventListener("submit", function (e) {
-
+   
     // Prevent the form from submitting
     e.preventDefault();
 
@@ -63,11 +63,11 @@ updatePersonForm.addEventListener("submit", function (e) {
     // Get the values from the form fields
     let fullNameValue = inputFullName.value;
     let homeworldValue = inputHomeworld.value;
-
+    
     // currently the database table for bsg_people does not allow updating values to NULL
-    // so we must abort if being passed NULL for homeworld
+    // so we must abort if being bassed NULL for homeworld
 
-    if (isNaN(homeworldValue))
+    if (isNaN(homeworldValue)) 
     {
         return;
     }
@@ -78,7 +78,7 @@ updatePersonForm.addEventListener("submit", function (e) {
         fullname: fullNameValue,
         homeworld: homeworldValue,
     }
-
+    
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
     xhttp.open("PUT", "/put-person-ajax", true);
@@ -105,26 +105,25 @@ updatePersonForm.addEventListener("submit", function (e) {
 
 function updateRow(data, personID){
     let parsedData = JSON.parse(data);
+    
+    let table = document.getElementById("people-table");
 
-    var table = document.getElementById("people-table");
-    var counter;
-
-    for (var i = 0, row; row = table.rows[i]; i++) {
+    for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == personID) {
-            var counter = i;
+
             // Get a reference to the people's table we are updating
             let currentTable = document.getElementById("people-table");
 
             // Get the location of the row where we found the matching person ID
-            let updateRowIndex = currentTable.getElementsByTagName("tr")[counter];
+            let updateRowIndex = currentTable.getElementsByTagName("tr")[i];
 
             // Get td of homeworld value
-            var td = updateRowIndex.getElementsByTagName("td")[3];
+            let td = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name;
+            td.innerHTML = parsedData[0].name; 
        }
     }
 }
@@ -171,33 +170,29 @@ addRowToTable = (data) => {
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        currentTable.deleteRow(newRowIndex);
         deletePerson(newRow.id);
     };
 
-
-
-    // Add the cells to the row
+    // Add the cells to the row 
     row.appendChild(idCell);
     row.appendChild(firstNameCell);
     row.appendChild(lastNameCell);
     row.appendChild(homeworldCell);
     row.appendChild(ageCell);
     row.appendChild(deleteCell);
+    
+    // Add a custom row attribute so the deleteRow function can find a newly added row
+    row.setAttribute('data-value', newRow.id);
 
     // Add the row to the table
     currentTable.appendChild(row);
 
-    // Start of new Step 8 code for adding new data to the drop-down menu for updating people
-
-    // Set a custom attribute to the new row so the update function can find newly added
-    // rows via ajax
-    row.setAttribute('data-value', newRow.id);
-
-    // Find drop down menu, create a new option, fill data in the option (text = full name, value = id),
-    // then append option to the drop down menu so newly created rows via ajax will be found in it without refresh needed
-    var selectMenu = document.getElementById("mySelect");
-    var option = document.createElement("option");
+    // Start of new Step 8 code for adding new data to the dropdown menu for updating people
+    
+    // Find drop down menu, create a new option, fill data in the option (full name, id),
+    // then append option to drop down menu so newly created rows via ajax will be found in it without needing a refresh
+    let selectMenu = document.getElementById("mySelect");
+    let option = document.createElement("option");
     option.text = newRow.fname + ' ' +  newRow.lname;
     option.value = newRow.id;
     selectMenu.add(option);
