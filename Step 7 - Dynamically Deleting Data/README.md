@@ -126,8 +126,8 @@ function deletePerson(personID) {
 
 function deleteRow(personID){
 
-    var table = document.getElementById("people-table");
-    for (var i = 0, row; row = table.rows[i]; i++) {
+    let table = document.getElementById("people-table");
+    for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == personID) {
@@ -138,6 +138,7 @@ function deleteRow(personID){
 }
 ```
 
+We check for a xhttp status of 204 since that is what our delete route will be sending back to the front-end. A HTTP 204 No Content is a success status that indicates a request has succeeded, but the client doesn't need any further information [1].
 End of Part B)
 
 ## Create a delete route
@@ -248,3 +249,7 @@ addRowToTable = (data) => {
 Now you should be able to delete rows due to the changes we made to the handlebars file and you should be able to delete new rows created through ajax request without having to refresh the page.  The final result should look like the following.
 
 ![delete person button](./assets/deleteButton.JPG)
+
+
+# Citations:
+1. https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
