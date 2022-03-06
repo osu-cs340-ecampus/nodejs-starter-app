@@ -175,40 +175,36 @@ LEFT JOIN bsg_planets ON bsg_people.homeworld = bsg_planets.id;`;
   })
 });
 
-app.delete('/delete-person/:personID', function(req, res, next) { // use delete verb since we are deleting from the databse
-  console.log("Here in delte route");
+app.delete('/delete-person-ajax/', function(req,res,next){                                                                
   let data = req.body;
-  console.log(req.params.personID);
+  let personID = parseInt(data.id);
   let deleteBsg_Cert_People = `DELETE FROM bsg_cert_people WHERE pid = ?`;
-  let deleteBsg_People = `DELETE FROM bsg_people WHERE id = ?`;
+  let deleteBsg_People= `DELETE FROM bsg_people WHERE id = ?`;
 
 
-  // Run the 1st query
-  db.pool.query(deleteBsg_Cert_People, [req.params.personID], function(error, rows, fields) {
-    if (error) {
+        // Run the 1st query
+        db.pool.query(deleteBsg_Cert_People, [personID], function(error, rows, fields){
+            if (error) {
 
-      // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-      console.log(error);
-      res.sendStatus(400);
-    }
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+            }
 
-    // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-    // presents it on the screen
-    else {
-      // Run the second query
-      db.pool.query(deleteBsg_People, [req.params.personID], function(error, rows, fields) {
-
-        if (error) {
-          console.log(error);
-          res.sendStatus(400);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-    }
-  })
-});
-
+            else
+            {
+                // Run the second query
+                db.pool.query(deleteBsg_People, [personID], function(error, rows, fields) {
+        
+                    if (error) {
+                        console.log(error);
+                        res.sendStatus(400);
+                    } else {
+                        res.sendStatus(204);
+                    }
+                })
+            }
+})});
 
 
 /*
