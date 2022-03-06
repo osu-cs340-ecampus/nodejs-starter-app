@@ -258,18 +258,9 @@ See if you can hack it yourself so that the drop-down menu can be updated dynami
 
 ## See below for code to dynamically remove people from the drop down menu
 
+Add a function call to deleteDropDownMenu from deleteRow after it finds the correct row to delete like the following:
+
 ```javascript
-function deletePerson(personID) {
-  let link = '/delete-person/';
-  link += personID;
-  $.ajax({
-    url: link,
-    type: 'DELETE',
-    success: function(result) {
-      deleteRow(personID);
-    }
-  })
-}
 
 function deleteRow(personID){
 
