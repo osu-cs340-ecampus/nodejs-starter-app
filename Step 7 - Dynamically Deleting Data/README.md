@@ -139,6 +139,7 @@ function deleteRow(personID){
 ```
 
 We check for a xhttp status of 204 since that is what our delete route will be sending back to the front-end. A HTTP 204 No Content is a success status that indicates a request has succeeded, but the client doesn't need any further information [1].
+
 End of Part B)
 
 ## Create a delete route
