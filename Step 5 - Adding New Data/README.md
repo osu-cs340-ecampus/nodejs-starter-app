@@ -49,7 +49,45 @@ This method will require some Document Object Model (DOM) manipulation. This is 
 
 ## Modifying `index.hbs`
 
-Open up `/views/index.hbs` in your favorite text editor. We need to create a few text boxes, and a button to submit the data to the database. When you are done, your `index.hbs` should look something like this:
+Open up `/views/index.hbs` in your favorite text editor. Then proceed to add an id to the people table, the id will be needed for locating our table with javascript later on in this step and in future project steps. The table should look something like the following:
+
+```html
+
+{{!-- Create a table --}}
+<table id="people-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.fname}}</td>
+            <td>{{this.lname}}</td>
+            <td>{{this.homeworld}}</td>
+            <td>{{this.age}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+```
+
+Afterwards, we need to create a few text boxes, and a button to submit the data to the database. When you are done, your `index.hbs` should look something like this:
 
 ```html
 <!-- /views/index.hbs -->
