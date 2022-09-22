@@ -45,6 +45,8 @@ Now, whenever you run `forever` from the *root* of any project that has the fore
 
 > You must run the forever command from the root of your project (where app.js is located). If you don't it will fail.
 
+You can use "forever list" to see all the running processes now. If you have multiple processes, you can see the index [0] [1] [2]... Double check which process is the one you want to kill. Then run "forever stop 0 (the index of the process)".
+
 ## App.js
 
 You will need to create an `app.js` in the root of your project folder. Create a new file, and save it as `app.js` 
