@@ -39,6 +39,7 @@ We need to make two separate changes in our `app.js` regardless of the method we
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 ```
 
 We are simply enabling express to handle JSON data, as well as form data. Don't read too much into this part.
