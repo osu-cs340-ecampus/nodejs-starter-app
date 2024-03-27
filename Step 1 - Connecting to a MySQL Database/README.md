@@ -99,7 +99,7 @@ app.get('/', function(req, res)
         // Define our queries
         query1 = 'DROP TABLE IF EXISTS diagnostic;';
         query2 = 'CREATE TABLE diagnostic(id INT PRIMARY KEY AUTO_INCREMENT, text VARCHAR(255) NOT NULL);';
-        query3 = 'INSERT INTO diagnostic (text) VALUES ("MySQL is working!")';
+        query3 = 'INSERT INTO diagnostic (text) VALUES ("MySQL is working for ONIDhere!")'; //replace with your onid
         query4 = 'SELECT * FROM diagnostic;';
 
         // Execute every query in an asynchronous manner, we want each query to finish before the next one starts
